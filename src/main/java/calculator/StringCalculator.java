@@ -7,7 +7,9 @@ import java.util.List;
 
 class StringCalculator {
 
-    public int add(String input) throws StringCalculatorException {
+    static int count=0;
+
+	public int add(String input) throws StringCalculatorException {
     	//if string is empty it returns 0
     	int sum=0;
        List<Integer> list =new ArrayList<>();
@@ -42,5 +44,11 @@ class StringCalculator {
     	 }
 		String[] nums = str.split(",|\n");  // /n added to use /n as delimiter
 		return nums;
+	}
+    
+    //count no of calls to add 
+    public static int getCallCount()
+	{
+		return count;
 	}
 }
