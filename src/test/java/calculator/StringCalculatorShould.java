@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorShould {
 
+    StringCalculator calculator=new StringCalculator();	
     @Test
     void empty_string_should_return_0() {
         StringCalculator stringCalculator = new StringCalculator();
@@ -30,5 +31,11 @@ class StringCalculatorShould {
         assertEquals(13, calculator.add("1,2,5,3,2"));
 
     }
+    
+    @Test
+	public void acceptNewline()
+	{
+		assertEquals(6, calculator.add("1\n2,3"));
+	}
 
 }

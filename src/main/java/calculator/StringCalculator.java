@@ -22,8 +22,8 @@ class StringCalculator {
          }
       }
     private static String[] split(String str)
-	{
-		String[] nums = str.split(",|\n");
+	{   
+		String[] nums = str.split(",|\n");  // /n added to use /n as delimiter
 		return nums;
 	}
 }
