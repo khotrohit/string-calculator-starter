@@ -73,6 +73,18 @@ class StringCalculatorShould {
 	{
 		assertEquals(calculator.getCallCount(),calculator.count);
 	}
-
+    
+    // To check no greater than 1000 
+    @Test
+	public void ignoreNumsGrtThn1000() throws Exception
+	{
+		assertEquals(2,calculator.add("2,1001"));
+	}
+    
+    @Test
+	public void validateAnyLengthDelimeter() throws Exception
+	{
+		assertEquals(6, calculator.add("//[***]\n1***2***3"));
+	}
     
 }
