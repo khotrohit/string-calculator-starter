@@ -22,7 +22,11 @@ class StringCalculator {
          }
       }
     private static String[] split(String str)
-	{   
+	{   // to allow Support different delimiters
+    	 if (str.startsWith("//")) {
+             String delimiter = str.substring(2, 3);
+             return str.substring(4).split(delimiter);
+    	 }
 		String[] nums = str.split(",|\n");  // /n added to use /n as delimiter
 		return nums;
 	}
