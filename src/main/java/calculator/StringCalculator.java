@@ -47,8 +47,10 @@ class StringCalculator {
              String delimiter = str.substring(2, 3);
              return str.substring(4).split(delimiter);
     	 }
-		String[] nums = str.split(",|\n");  // /n added to use /n as delimiter
-		return nums;
+    	 else {
+    		 String[] nums = str.split(",|\n");  // /n added to use /n as delimiter
+    			return nums;
+    	 }
 	}
     
     //count no of calls to add 
@@ -84,4 +86,5 @@ class StringCalculator {
 		
 		
 	}
+   
 }
