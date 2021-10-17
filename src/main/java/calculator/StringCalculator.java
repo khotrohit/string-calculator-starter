@@ -11,7 +11,7 @@ class StringCalculator {
     	   if(input.length()==1)
     	      return Integer.parseInt(input);   //if string length is 1 it returns first element converted to integer
     	   else {
-    		   //these will check for 2 or 3 numbers
+    		   //these will check for 2 or more numbers
     		   String[] nums = StringCalculator.split(input);
     		  
     		   for (String num : nums) {
@@ -23,7 +23,7 @@ class StringCalculator {
       }
     private static String[] split(String str)
 	{
-		String[] nums = str.split(",");
+		String[] nums = str.split(",|\n");
 		return nums;
 	}
 }
