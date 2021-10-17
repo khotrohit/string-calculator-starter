@@ -47,16 +47,27 @@ class StringCalculatorShould {
 	}
     // to check for a single negative number;
     @Test
-    public void trowExceptionIfNegativeNumber() throws Exception {
+    public void throwExceptionIfNegativeNumber() {
         StringCalculator calculator = new StringCalculator();
         try {
             calculator.add("//;\n1;-2;5");
-        }catch (StringCalculatorException e) {
-            assertEquals("negatives not allowed -2", e.getMessage());
+        }catch (Exception e) {
+            assertEquals("negatives not allowed: [-2]", e.getMessage());
         }
     }
-
-    
+   // o check for a multiple negative number
+    @Test
+	public void multipleNegativeNumbers() throws Exception
+	{
+		try {
+			calculator.add("-1,-2,3");
+		}
+		
+		catch(Exception e)
+		{
+			assertEquals("negatives not allowed: [-1, -2]", e.getMessage());
+		}
+	}
     
     
     

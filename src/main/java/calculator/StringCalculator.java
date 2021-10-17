@@ -1,10 +1,16 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 class StringCalculator {
 
     public int add(String input) throws StringCalculatorException {
     	//if string is empty it returns 0
     	int sum=0;
+       List<Integer> list =new ArrayList<>();
        if(input.isEmpty())
     	    return 0;
        else {
@@ -15,12 +21,15 @@ class StringCalculator {
     		   String[] nums = StringCalculator.split(input);
     		   
     		   for (String num : nums) {
+    			   //check for negative
     			   if (Integer.parseInt(num) < 0) {
-                       throw new StringCalculatorException("negatives not allowed "+num);
+                       list.add(Integer.parseInt(num));
                    }
 
     	            sum += Integer.parseInt(num);
     	        }
+    		   if(list.size()>0)
+    			   throw new StringCalculatorException("negatives not allowed: "+list.toString());
     		   return sum;
     	   }
          }
