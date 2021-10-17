@@ -10,13 +10,13 @@ class StringCalculatorShould {
     
     // to check for empty input
     @Test
-    void empty_string_should_return_0() {
+    void empty_string_should_return_0() throws Exception {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(0, stringCalculator.add(""));
     }
     // to check for 1 input 
     @Test
-    void string_with_single_number_should_return_number_as_int() {
+    void string_with_single_number_should_return_number_as_int() throws Exception {
         StringCalculator stringCalculator = new StringCalculator();
         assertEquals(1, stringCalculator.add("1"));
     }
@@ -35,15 +35,29 @@ class StringCalculatorShould {
     }
     // to check and accept new line character
     @Test
-	public void acceptNewline()
+	public void acceptNewline() throws Exception
 	{
 		assertEquals(6, calculator.add("1\n2,3"));
 	}
     // to check and support multiple delimiters
     @Test
-	public void anyDelimeter()
+	public void anyDelimeter() throws Exception
 	{
 		assertEquals(3, calculator.add("//;\n1;2"));
 	}
+    // to check for a single negative number;
+    @Test
+    public void trowExceptionIfNegativeNumber() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        try {
+            calculator.add("//;\n1;-2;5");
+        }catch (StringCalculatorException e) {
+            assertEquals("negatives not allowed -2", e.getMessage());
+        }
+    }
 
+    
+    
+    
+    
 }
